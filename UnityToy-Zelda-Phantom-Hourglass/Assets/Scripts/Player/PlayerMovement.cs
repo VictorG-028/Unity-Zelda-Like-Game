@@ -10,8 +10,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerProperties playerProperties = null;
     [SerializeField] Camera mainCamera = null;
 
+    // Parameters
     [SerializeField] bool showDebugMovementLine = false;
 
+    // Control
+    private float rayMaxDistance = 50.0f;
 
     void OnValidate()
     {
@@ -50,10 +53,14 @@ public class PlayerMovement : MonoBehaviour
         {
             // Checking if the raycast shot hits something that uses the navmesh system.
             var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            var isHit = Physics.Raycast(ray, out RaycastHit hit, 20); // Mathf.Infinity
+            var isHit = Physics.Raycast(ray, out RaycastHit hit, rayMaxDistance); // Mathf.Infinity
+
+            Debug.Log($"ray: {ray}");
+            Debug.Log($"isHit: {isHit}");
 
             if (playerProperties.canMove && isHit)
             {
+                Debug.Log($"Deve se mover");
                 agent.SetDestination(hit.point);
             }
         }

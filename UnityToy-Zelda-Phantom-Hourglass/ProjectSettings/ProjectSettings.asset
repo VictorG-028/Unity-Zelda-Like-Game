@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: UFRPE
-  productName: Toy
+  productName: ZeldaPhantomHourglass_Toy
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -139,7 +139,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.2
+  bundleVersion: 0.3
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -756,7 +756,7 @@ PlayerSettings:
   cloudProjectId: fbe6ff6f-dce0-4aa0-aebf-5270fdc51d38
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: DiscoElysium movement
+  projectName: UnityToy-Zelda-Phatom-Hourglass
   organizationId: powerblue028
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

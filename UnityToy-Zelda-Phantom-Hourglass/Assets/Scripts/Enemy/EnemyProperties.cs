@@ -41,15 +41,20 @@ public class EnemyProperties : MonoBehaviour
         //Debug.Log($"Collider {other} entrou no colider do {enemyName}");
         if (other.CompareTag("Attack"))
         {
-            currentHP -= 1;
-            Debug.Log($"O jogador atacou {enemyName}! ({currentHP}/{maxHP})HP");
+            TakeDamage(1);
+        }
+    }
 
-            if (once && currentHP < 0)
-            {
-                once = false; // Prevent from calling enemySpawnerManager multiple times
-                Destroy(gameObject);
-                if (spawnerId > -1) { enemySpawnerManager.EnemyDeath(spawnerId, this.xpGiven); }
-            }
+    public void TakeDamage(int damage)
+    {
+        currentHP -= damage;
+        Debug.Log($"O jogador atacou {enemyName}! ({currentHP}/{maxHP})HP");
+
+        if (once && currentHP <= 0)
+        {
+            once = false; // Prevent from calling enemySpawnerManager multiple times
+            Destroy(gameObject);
+            if (spawnerId > -1) { enemySpawnerManager.EnemyDeath(spawnerId, this.xpGiven); }
         }
     }
 }

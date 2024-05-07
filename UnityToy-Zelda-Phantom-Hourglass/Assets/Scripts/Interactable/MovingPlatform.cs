@@ -29,6 +29,14 @@ public class MovingPlatform : MonoBehaviour
             Debug.Log("plataforma 5 triggered");
             playerNavMeshAgent.updatePosition = false; // https://discussions.unity.com/t/navmesh-y-axis/168297
             player.transform.SetParent(transform);
+
+            // Deleta o caminho que o agente tenta ir
+            //playerNavMeshAgent.isStopped = true;
+            //playerNavMeshAgent.ResetPath();
+            //playerNavMeshAgent.isStopped = false;
+
+            playerNavMeshAgent.enabled = false;
+
             animator.Play("Move_Around"); // https://www.youtube.com/watch?v=12ojksg7GiU
             locked = true;
         }

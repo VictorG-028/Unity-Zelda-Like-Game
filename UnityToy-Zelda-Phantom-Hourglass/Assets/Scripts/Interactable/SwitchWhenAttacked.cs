@@ -1,14 +1,15 @@
 using UnityEngine;
 using System;
 
-public class SwitchWhenAttacked : MonoBehaviour
+public class SwitchWhenAttacked : MonoBehaviour, IResetable
 {
     [SerializeField] SpriteRenderer spriteRenderer = null; 
     [SerializeField] Sprite spriteOff = null;
     [SerializeField] Sprite spriteOn = null;
-    [SerializeField] ActivableType activableType = ActivableType.NULL; // MUST BE INITIALIZED IN EDITOR
-    [SerializeField] GameObject[] objectsToActivate = null; // MUST BE INITIALIZED IN EDITOR
 
+    // Parameters
+    [SerializeField] GameObject[] objectsToActivate = null; // MUST BE INITIALIZED IN EDITOR
+    
     // Control
     //private bool shouldAutoTurnOff = false; // TODO: implementar auto desligamento por tempo usando couroutine
     private bool on = false;
@@ -35,34 +36,24 @@ public class SwitchWhenAttacked : MonoBehaviour
         {
             //spriteRenderer.sprite = Resources.Load<Sprite>(spriteNameOn);
             spriteRenderer.sprite = spriteOn;
-            updateLinkedObject(true);
+            ActivateObjects(true);
         }
     }
-    private void updateLinkedObject(bool isActive)
+    private void ActivateObjects(bool isActive)
     {
-        if (activableType == ActivableType.Spawner)
+        foreach (GameObject obj in objectsToActivate)
         {
-            foreach (GameObject spawner in objectsToActivate)
-            {
-                spawner.GetComponent<EnemySpawner>().isActive = isActive;
-            }
-        }
-        else if (activableType == ActivableType.Door)
-        {
-            foreach (GameObject spawner in objectsToActivate)
-            {
-                // TODO
-            }
+            obj.GetComponent<IActivable>().Activate();
         }
     }
 
-    public void resetState()
+    public void ResetState()
     {
         // Default values
         on = false;
         lockOnLogic = false;
 
         spriteRenderer.sprite = spriteOff;
-        updateLinkedObject(false);
+        ActivateObjects(false);
     }
 }

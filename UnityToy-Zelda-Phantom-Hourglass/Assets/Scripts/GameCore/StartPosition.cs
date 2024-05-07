@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StartPosition : MonoBehaviour
+public class StartPosition : MonoBehaviour, IResetable
 {
     [SerializeField] Vector3 initialPos = Vector3.zero;
     [SerializeField] Quaternion initialRotation = Quaternion.identity;
@@ -11,8 +11,14 @@ public class StartPosition : MonoBehaviour
         if (initialRotation == Quaternion.identity) { initialRotation = gameObject.transform.rotation; }
     }
 
-    public (Vector3 position, Quaternion rotation) GetInitialState()
+    //public (Vector3 position, Quaternion rotation) GetInitialState()
+    //{
+    //    return (initialPos, initialRotation);
+    //}
+
+    public void ResetState()
     {
-        return (initialPos, initialRotation);
+        transform.position = initialPos;
+        transform.rotation = initialRotation;
     }
 }

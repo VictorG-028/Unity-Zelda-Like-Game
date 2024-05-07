@@ -12,6 +12,10 @@ TagManager:
   - UncompletedPressurePlate
   - CompletedPressurePlate
   - Door
+  - Breakable
+  - Pickable
+  - Heart Container
+  - Wall_cracked
   layers:
   - Default
   - TransparentFX

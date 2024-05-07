@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SwitchLampSprite_0
+      name: LampOff
       rect:
         serializedVersion: 2
         x: 6
@@ -118,7 +118,7 @@ TextureImporter:
         width: 51
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwitchLampSprite_1
+      name: LampOn
       rect:
         serializedVersion: 2
         x: 70
@@ -139,7 +139,7 @@ TextureImporter:
         width: 51
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SwitchLampSprite_0: -1932089049
-      SwitchLampSprite_1: 543250630
+      LampOff: -1932089049
+      LampOn: 543250630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
